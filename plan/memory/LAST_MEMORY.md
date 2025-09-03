@@ -2,7 +2,7 @@
 
 ## Current Snapshot (2025-09-04)
 - Milestone: M2 — Compression/Decompression Engine.
-- Completed: PRS-021 Engine abstraction (`ArchiveService`, `EngineRunner` integrated into `JobsStore`).
+- Completed: PRS-021 Engine abstraction (`ArchiveService`, `EngineRunner` integrated into `JobsStore`). PRS-022 minimal ZIP (store-only) roundtrip.
 - Recent: PRS-014 theming tokens applied to UI; PRS-013 error model and alert flow wired.
 - Docs: AGENTS.md updated (commit-after-green; docs-on-test-change; LAST_MEMORY compaction).
 
@@ -15,6 +15,13 @@
 ## Build/Test Verification (2025-09-04, post-PRS-021)
 - Ran `./scripts/build.sh` — success.
 - Ran `./scripts/test.sh` — success (all tests passed on iPhone 16 Pro simulator).
+
+## PRS-022 — ZIP End-to-End (minimal) (2025-09-04)
+- Implemented basic ZIP create/extract (store-only) in `DefaultArchiveService` with CRC32, local headers, and central directory; naive extraction parser.
+- Added unit tests at `PressiTests/EngineZipTests.swift` for single-file and multi-file roundtrip.
+- Fixed little-endian readers for robust parsing; validated via focused run `-only-testing:PressiTests` where 3 Swift Testing cases pass.
+- Note: `scripts/test.sh` output summarizes XCTest suites; Swift Testing prints its own summary. Focused run confirms unit tests execute and pass.
+- AGENTS.md updated with policy: do not delete or weaken tests to go green; fix code or adjust tests only when behavior changes, and document.
 
 ## Archived Sections
 - M0/M1 setup & architecture, build fix, early verification: plan/memory/2025-09-04-M0-M1-setup-and-arch.md
