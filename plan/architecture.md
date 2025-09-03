@@ -9,7 +9,7 @@ Scope: Baseline app architecture for Pressi (M1 — PRS-010/PRS-011).
 
 ## App State & Data Flow
 - SettingsStore (ObservableObject): app‑wide defaults — `defaultFormat`, `compressionLevel`, `encryptByDefault`.
-- JobsStore (ObservableObject): tracks compression/decompression jobs with progress and cancellation.
+- JobsStore (ObservableObject): tracks compression/decompression jobs with progress and cancellation. Uses a `JobRunner` abstraction; currently backed by `SimulatedRunner` that drives progress. Engine integration will replace the runner.
 - Injection: Stores are created in `PressiApp` and injected via `.environmentObject(...)`.
 
 ## Navigation
@@ -27,4 +27,3 @@ Scope: Baseline app architecture for Pressi (M1 — PRS-010/PRS-011).
 - PRS-012: Introduce `JobsStore` integration with Engine operations and cancellation.
 - PRS-013: Define error types and user messaging utilities.
 - PRS-014: Establish base theming tokens and typography helpers.
-

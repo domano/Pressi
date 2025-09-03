@@ -36,11 +36,23 @@
 ## What I Did (M1)
 - Added app state containers:
   - `Pressi/AppState/SettingsStore.swift` (defaults, compression level)
-  - `Pressi/AppState/JobsStore.swift` (job list and progress)
+  - `Pressi/AppState/JobsStore.swift` (job list, progress, cancellation, `JobRunner` abstraction with `SimulatedRunner`)
 - Added root navigation and views:
   - `Pressi/UI/RootView.swift` with TabView (Home, Settings) and jobs overlay strip
-  - `HomeView` quick actions wiring into `JobsStore`
+  - `HomeView` quick actions now call `jobs.start(...)` to launch simulated jobs
+  - Jobs overlay shows a cancel button per in‑flight job
   - `SettingsView` bound to `SettingsStore`
 - Wired environment objects in `Pressi/PressiApp.swift` and set root to `RootView()`.
 - Wrote `plan/architecture.md` summarizing modules, state flow, and next steps.
 
+### Build Fix (2025-09-04)
+- Resolved compile errors in `JobsStore.swift`:
+  - Removed `public` access and `@MainActor` from `JobRunner`/`SimulatedRunner` to avoid visibility and actor-isolation issues.
+- Changed default runner and execution to run off the main actor via `Task.detached`; post progress by spawning a nested `Task { await MainActor.run { ... } }` to keep the `onProgress` closure synchronous.
+- Added cancellation checks in `SimulatedRunner` loop.
+ - Addressed Swift 6 capture rules: captured `runner` and `jobID` outside detached Task; annotated `onProgress` as `@Sendable`; used `Task { @MainActor ... }` for UI updates.
+
+## Open Questions / Next Steps
+- Replace `SimulatedRunner` with Engine-backed runner that performs real compression/decompression.
+- Define error types (user vs. developer) and propagate through runner to UI (PRS-013).
+- Introduce theming tokens for colors/typography (PRS-014).
