@@ -6,11 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		31D83FA32E68E541008F48E7 /* Wireframes for app features.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 31D83FA22E68E541008F48E7 /* Wireframes for app features.pdf */; };
-		31D83FA52E68E93F008F48E7 /* Wireframes for app features.docx in Resources */ = {isa = PBXBuildFile; fileRef = 31D83FA42E68E93F008F48E7 /* Wireframes for app features.docx */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		31D83F7F2E68E3E3008F48E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -32,8 +27,6 @@
 		31D83F6D2E68E3E2008F48E7 /* Pressi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pressi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D83F7E2E68E3E3008F48E7 /* PressiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PressiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D83F882E68E3E3008F48E7 /* PressiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PressiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		31D83FA22E68E541008F48E7 /* Wireframes for app features.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Wireframes for app features.pdf"; sourceTree = "<group>"; };
-		31D83FA42E68E93F008F48E7 /* Wireframes for app features.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wireframes for app features.docx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -99,8 +92,6 @@
 				31D83F812E68E3E3008F48E7 /* PressiTests */,
 				31D83F8B2E68E3E3008F48E7 /* PressiUITests */,
 				31D83F6E2E68E3E2008F48E7 /* Products */,
-				31D83FA22E68E541008F48E7 /* Wireframes for app features.pdf */,
-				31D83FA42E68E93F008F48E7 /* Wireframes for app features.docx */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,8 +225,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31D83FA32E68E541008F48E7 /* Wireframes for app features.pdf in Resources */,
-				31D83FA52E68E93F008F48E7 /* Wireframes for app features.docx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
