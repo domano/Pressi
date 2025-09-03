@@ -54,13 +54,27 @@
 
 ## Open Questions / Next Steps
 - Replace `SimulatedRunner` with Engine-backed runner that performs real compression/decompression.
-- Define error types (user vs. developer) and propagate through runner to UI (PRS-013).
-- Introduce theming tokens for colors/typography (PRS-014).
+- Finalize error/reporting hooks once Engine errors are known.
+- Validate theming with Accessibility Inspector on XL/XXL sizes.
 
 ## Build/Test Verification (2025-09-04)
 - Ran `./scripts/build.sh` — success.
 - Ran `./scripts/test.sh` — all tests passed.
 - Proceed with PRS-013 (error model) next.
+
+## PRS-014 — Theming & Typography (2025-09-04)
+- Added base theming tokens at `Pressi/UI/Theme/AppTheme.swift`.
+- Colors: `AppTheme.Palette` (accent/background/textPrimary/textSecondary/etc.) use system-aware dynamic colors.
+- Typography: `AppTheme.Typography` provides semantic fonts (largeTitle/title/headline/body/caption/footnote).
+- Applied tokens in `RootView`:
+  - Global `.tint(AppTheme.Palette.accent)` for consistent control tint.
+  - Jobs strip uses `Typography.caption` and `Palette.textSecondary` with `minimumScaleFactor(0.8)` for better Dynamic Type behavior.
+  - Defaults rows use `Palette.textSecondary` for value text.
+- Updated `plan/architecture.md` Theming section to document usage.
+
+### Proposed Next Task
+- Milestone: M2 — Compression Engine.
+- Tickets to start: define Engine runner and integrate with `JobsStore` (replace `SimulatedRunner`), add basic archive operations per PRD.
 
 ## PRS-013 — Error Model (2025-09-04)
 - Added `Pressi/AppState/AppError.swift` with `PressiError` (user/developer/cancelled) and `PresentedError` for UI.

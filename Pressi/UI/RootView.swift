@@ -23,6 +23,7 @@ struct RootView: View {
                     Label("Settings", systemImage: "gearshape")
                 }
         }
+        .tint(AppTheme.Palette.accent)
         .overlay(alignment: .bottom) {
             if !jobs.jobs.isEmpty {
                 JobsStrip(jobs: jobs.jobs)
@@ -44,7 +45,11 @@ private struct JobsStrip: View {
                 ForEach(jobs) { job in
                     HStack(spacing: 8) {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text(job.name).font(.caption).lineLimit(1)
+                            Text(job.name)
+                                .font(AppTheme.Typography.caption)
+                                .foregroundStyle(AppTheme.Palette.textSecondary)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.8)
                             ProgressView(value: job.progress)
                                 .progressViewStyle(.linear)
                         }
@@ -93,13 +98,13 @@ struct HomeView: View {
                         Label("Format", systemImage: "doc.zipper")
                         Spacer()
                         Text(settings.defaultFormat.uppercased())
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(AppTheme.Palette.textSecondary)
                     }
                     HStack {
                         Label("Level", systemImage: "gauge.with.dots.needle.bottom.50percent")
                         Spacer()
                         Text(settings.compressionLevel.rawValue.capitalized)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(AppTheme.Palette.textSecondary)
                     }
                 }
             }
@@ -118,7 +123,7 @@ private struct CancelButton: View {
             Image(systemName: "xmark.circle.fill")
         }
         .buttonStyle(.borderless)
-        .foregroundStyle(.secondary)
+        .foregroundStyle(AppTheme.Palette.textSecondary)
         .accessibilityLabel("Cancel job")
     }
 }

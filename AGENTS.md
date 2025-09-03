@@ -51,6 +51,7 @@ Use Xcode’s Product > Build/Test for day‑to‑day development.
   - The proposed next task (milestone/ticket) and any open questions.
 - Startup routine: before starting work, read `plan/memory/LAST_MEMORY.md` to restore context, then open the next milestone/ticket in `plan/`.
 - Build/test: prefer the scripts `scripts/build.sh` and `scripts/test.sh` (or the `xcodebuild` commands listed above).
+- Always run a clean build (and tests when applicable) immediately after completing changes. Consider a task done only after a successful build (and green tests).
 
 - General memories: save noteworthy context as separate files under `plan/memory/` with descriptive names (e.g., `2025-09-04-PRS-013-error-model.md`) in addition to updating `LAST_MEMORY.md`.
 - Always parse on task start: read `PRD.docx`, `llm.txt`, and `plan/memory/LAST_MEMORY.md` to ensure current requirements and context are applied.
