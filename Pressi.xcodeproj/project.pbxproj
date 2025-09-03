@@ -33,8 +33,8 @@
 		31D83F902E68E3E3008F48E7 /* Exceptions for "Pressi" folder in "Pressi" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Extensions/ActionExtension/Info.plist,
 				Info.plist,
-                Extensions/ActionExtension/Info.plist,
 			);
 			target = 31D83F6C2E68E3E2008F48E7 /* Pressi */;
 		};

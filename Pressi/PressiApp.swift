@@ -10,6 +10,8 @@ import SwiftData
 
 @main
 struct PressiApp: App {
+    @StateObject private var settings = SettingsStore()
+    @StateObject private var jobs = JobsStore()
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -25,7 +27,9 @@ struct PressiApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(settings)
+                .environmentObject(jobs)
         }
         .modelContainer(sharedModelContainer)
     }
