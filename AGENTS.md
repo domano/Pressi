@@ -52,6 +52,10 @@ Use Xcode’s Product > Build/Test for day‑to‑day development.
 - Startup routine: before starting work, read `plan/memory/LAST_MEMORY.md` to restore context, then open the next milestone/ticket in `plan/`.
 - Build/test: prefer the scripts `scripts/build.sh` and `scripts/test.sh` (or the `xcodebuild` commands listed above).
 
+- General memories: save noteworthy context as separate files under `plan/memory/` with descriptive names (e.g., `2025-09-04-PRS-013-error-model.md`) in addition to updating `LAST_MEMORY.md`.
+- Always parse on task start: read `PRD.docx`, `llm.txt`, and `plan/memory/LAST_MEMORY.md` to ensure current requirements and context are applied.
+- “Do the next task”: when prompted to continue, consult `plan/memory/LAST_MEMORY.md` to select the next milestone/ticket from `plan/` and proceed accordingly.
+
 ## M0 — Project Setup Status
 - PRS-001 Targets & platforms: App target present (`Pressi`), iOS/iPadOS 18; placeholder UI in `ContentView.swift` launches via `PressiApp.swift`.
 - PRS-002 Module scaffold: Engine (`Pressi/Engine/EngineCore.swift`), UI, Extensions (`Pressi/Extensions/ActionExtension`), and test targets exist; project compiles with placeholders.
