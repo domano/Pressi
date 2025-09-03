@@ -18,7 +18,9 @@ Scope: Baseline app architecture for Pressi (M1 — PRS-010/PRS-011).
 - SettingsView: form to edit defaults bound to `SettingsStore`.
 
 ## Error Model (stub)
-- Distinguish user‑facing vs developer errors. For M1, use Swift Error enums in Engine and map to user messages in UI. (To be implemented in PRS-013.)
+- Use `PressiError` to distinguish user‑facing vs developer errors and cancellation.
+- Jobs are executed via a `JobRunner` that can throw; `JobsStore` catches and exposes `presentedError` for UI alerts.
+- UI presents friendly alert messages; developer/unknown errors map to a generic message.
 
 ## Theming (stub)
 - Use system colors/typography and Dynamic Type. Custom theme surface to be introduced later (PRS-014).

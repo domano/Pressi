@@ -30,6 +30,9 @@ struct RootView: View {
             }
         }
         .animation(.default, value: jobs.jobs)
+        .alert(item: $jobs.presentedError) { err in
+            Alert(title: Text(err.title), message: Text(err.message), dismissButton: .default(Text("OK")))
+        }
     }
 }
 
@@ -77,6 +80,11 @@ struct HomeView: View {
                         _ = jobs.start(kind: .decompress, name: "Sample Decompress")
                     } label: {
                         Label("Decompress Archive", systemImage: "arrow.up.circle")
+                    }
+                    Button {
+                        _ = jobs.start(kind: .compress, name: "Sample Fail")
+                    } label: {
+                        Label("Start Failing Job", systemImage: "exclamationmark.triangle")
                     }
                 }
 

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCHEME=${SCHEME:-Pressi}
-DEST=${DEST:-platform=iOS Simulator,name=iPhone 15}
+DEST=${DEST:-platform=iOS Simulator,name=iPhone 16 Pro}
 
 echo "Building scheme: $SCHEME"
 if command -v xcbeautify >/dev/null 2>&1; then
