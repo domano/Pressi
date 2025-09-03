@@ -45,7 +45,7 @@ final class JobsStore: ObservableObject {
     private let runner: JobRunner
     @Published var presentedError: PresentedError?
 
-    init(runner: JobRunner = SimulatedRunner()) {
+    init(runner: JobRunner = EngineRunner(service: DefaultArchiveService(), defaultFormat: .zip, defaultLevel: .normal)) {
         self.runner = runner
     }
 

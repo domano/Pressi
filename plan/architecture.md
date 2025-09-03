@@ -3,7 +3,7 @@
 Scope: Baseline app architecture for Pressi (M1 — PRS-010/PRS-011).
 
 ## Modules
-- Engine: Core compression/decompression logic and adapters (currently stubbed in `Pressi/Engine/EngineCore.swift`).
+- Engine: Core compression/decompression logic and adapters (see `Pressi/Engine/ArchiveService.swift`, `EngineRunner.swift`, and stub `EngineCore.swift`).
 - UI: SwiftUI views, navigation, and state stores (`Pressi/UI`, `Pressi/AppState`).
 - Extensions: Share/Action extensions (`Pressi/Extensions/ActionExtension`).
 
@@ -29,6 +29,6 @@ Scope: Baseline app architecture for Pressi (M1 — PRS-010/PRS-011).
 - Views should prefer tokens for color and font to ensure consistency and Dynamic Type support.
 
 ## Next Steps
-- PRS-012: Introduce `JobsStore` integration with Engine operations and cancellation.
-- PRS-013: Define error types and user messaging utilities.
-- PRS-014: Establish base theming tokens and typography helpers.
+- PRS-022+: Implement real ZIP/TAR/7z operations behind `ArchiveService`.
+- PRS-025: Standardize password prompts and error mapping.
+- PRS-026: Streamed IO and performance work.
