@@ -34,6 +34,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+                Extensions/ActionExtension/Info.plist,
 			);
 			target = 31D83F6C2E68E3E2008F48E7 /* Pressi */;
 		};
